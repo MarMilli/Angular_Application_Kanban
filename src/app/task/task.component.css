@@ -1,0 +1,9 @@
+div {
+  background: white;
+  border-radius: 5px;
+  margin: 06px;
+  text-align: center;
+  padding: 3px 6px 10px 6px;
+  min-width: 300px;
+  min-height: 80px;
+}
