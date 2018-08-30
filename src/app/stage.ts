@@ -9,4 +9,4 @@ export class Stage {
   }
 }
 
-export const Stages: Stage[] = [new Stage('Анализ и проектирование'),new Stage('Разработка'), new Stage('Тестирование'), new Stage('Релиз')];
+export const Stages: Stage[] = [new Stage('Анализ и проектирование'), new Stage('Разработка'), new Stage('Тестирование'), new Stage('Релиз')];
