@@ -5,11 +5,11 @@
   <div *ngFor="let task of stage.tasks">
   <app-task [moveEnabled]="moveEnabled" (moveTask)="onTaskMoved($event)" [task]="task"></app-task>
   </div>
-  <div class = "addTask" >
-    <label title="Название задачи">Добавить задачу:
-      <input [(ngModel)]="taskName">
-    </label>
-    <button (click)="createTask()">Создать</button>
   </div>
-  </div>
+</div>
+<div class = "addTask" >
+  <label title="Название задачи">Добавить задачу:
+    <input [(ngModel)]="taskName">
+  </label>
+  <button (click)="createTask()">Создать</button>
 </div>

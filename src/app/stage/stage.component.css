@@ -3,9 +3,12 @@
   padding: 3px;
   background: #e5f8ff;
   border-radius: 3px;
-  min-width: 35%;
-  min-height:50px;
 }
+
+:host {
+  width: 100%;
+}
+
 .stageName {
   padding: 3px;
   margin: 5px;
@@ -17,10 +20,12 @@
 .stageContent {
   margin: 3px;
   padding: 3px;
-}
+  overflow-y: auto;
+  max-height: calc(100vh - 210px);
 
+}
 .addTask {
-  background: white;
+  background: #e5f8ff;
   margin: 3px;
   padding: 3px;
   border-radius: 3px;
