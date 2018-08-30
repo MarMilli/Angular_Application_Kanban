@@ -1,7 +1,10 @@
-<div>
+<div class='task'>
   <p>
-  Сделать: {{task.title}}, приоритет: {{task.priority}}
+  Сделать: {{task.title}}
 </p>
+  <p>
+    Приоритет: {{task.priority}}
+  </p>
 
 <button *ngIf="moveEnabled" (click)="moveAhead()">Вперед</button>
 </div>

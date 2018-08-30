@@ -1,5 +1,5 @@
 .board {
-  max-width: 70%;
+  max-width: 90%;
   margin: 0 auto;
   color: #000000;
   display: flex;
@@ -7,5 +7,4 @@
 
 :host {
   display: flex;
-  padding: 5px;
 }

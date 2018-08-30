@@ -1,9 +1,11 @@
-div {
-  background: white;
-  border-radius: 5px;
-  margin: 06px;
+.task {
+  background: url('../../assets/image/note-pin-paper.png') no-repeat;
+  background-size: 314px 190px;
+  font-family: 'Bad Script', cursive;
+  margin: 9px 3px 1px 3px;
   text-align: center;
-  padding: 3px 6px 10px 6px;
-  min-width: 300px;
-  min-height: 80px;
+  padding: 30px 3px 2px 2px;
+  min-width: 25%;
+  min-height: 200px;
+  box-sizing: border-box;
 }
