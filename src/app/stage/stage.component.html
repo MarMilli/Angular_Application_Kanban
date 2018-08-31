@@ -3,16 +3,17 @@
 </div>
   <div class="stageContent">
   <div *ngFor="let task of stage.tasks">
-    <app-task [moveEnabled]="moveEnabled" (moveTask)="onTaskMoved($event)"  [task]="task"></app-task>
-    <!--[backwardEnabled]="backwardEnabled" (backwardTask)="onTaskbackward($event)"-->
+    <app-task [moveEnabled]="moveEnabled" [backEnabled]="backEnabled" (moveTask)="onTaskMoved($event)"
+              (backTask)="inTaskMoved($event)" [task]="task"></app-task>
   </div>
   </div>
 </div>
 <div class = "addTask" >
-  <label title="Название задачи">Добавить задачу:
-    <p>Заголовок <input [(ngModel)]="taskName">
-    <p>Описание<input [(ngModel)]="taskContent">
-    <p>Приоритет<input [(ngModel)]="taskPriority">
-  </label>
+  <div class='taskForm' title="Добавление новой задачи">
+    <div class="formName">Добавить задачу:</div>
+    <div class="formBlock"> <label> Заголовок </label> <input [(ngModel)]="taskName"></div>
+    <div class="formBlock"><label> Описание</label><input [(ngModel)]="taskContent"></div>
+    <div class="formBlock"><label> Приоритет</label><input [(ngModel)]="taskPriority"></div>
+  </div>
   <button (click)="createTask()">Создать</button>
 </div>

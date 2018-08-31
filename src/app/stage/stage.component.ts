@@ -14,7 +14,7 @@ export class StageComponent implements OnInit {
   @Input()
   moveEnabled: boolean;
   @Input()
-  backwardEnabled: boolean;
+  backEnabled: boolean;
 
   taskName: string;
   taskContent: string;
@@ -23,8 +23,7 @@ export class StageComponent implements OnInit {
   @Output()
   moveTask: EventEmitter<Task> = new EventEmitter<Task>();
   @Output()
-  backwardTask: EventEmitter<Task> = new EventEmitter<Task>();
-
+  backTask:  EventEmitter<Task> = new EventEmitter<Task>();
   constructor() {
 
   }
@@ -44,8 +43,8 @@ export class StageComponent implements OnInit {
     this.moveTask.emit($event);
   }
 
-//   onTaskbackward ($event: Task) {
-//   this.stage.tasks = this.stage.tasks.filter(value => value !== $event);
-//   this.backwardTask.emit($event);
-// }
+  inTaskMoved($event: Task) {
+    this.stage.tasks = this.stage.tasks.filter(value => value !== $event);
+    this.backTask.emit($event);
+  }
 }

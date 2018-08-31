@@ -1,11 +1,15 @@
 <div class='task'>
-  <div class = 'prioritet'>
-    {{task.priority}}
+  <div class="sectionPrioritet">
+    <div class = 'prioritet'>
+      {{task.priority}}
+    </div>
   </div>
+  <div class="taskContent">
   <h2>{{task.title}}</h2>
   <p>
     {{task.content}}
   </p>
-  <button *ngIf="backwardEnabled" (click)="backward()">Назад</button>
+  <button *ngIf="backEnabled" (click)="backAhead()">Назад</button>
   <button *ngIf="moveEnabled" (click)="moveAhead()">Вперед</button>
+  </div>
 </div>
