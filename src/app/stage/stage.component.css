@@ -23,34 +23,3 @@
   overflow-y: auto;
   max-height: calc(100vh - 210px);
 }
-.addTask {
-  background: #e5f8ff;
-  margin: 3px;
-  padding: 5px;
-  border-radius: 5px;
-}
-label {
-  display: block;
-  font-size: 0.9rem;
-  width: 50%;
-  flex: none;
-}
-.taskForm {
-  display: flex;
-  flex-flow: row wrap;
-  margin-bottom: 5px;
-}
-.formName {
-  width: 100%;
-  flex: none;
-  font-weight: bold;
-}
-input {
-  width: 100%;
-}
-.formBlock {
-  margin-right: 10px;
-}
-button {
-
-}

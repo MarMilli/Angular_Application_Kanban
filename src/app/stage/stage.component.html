@@ -1,6 +1,5 @@
 <div class = "stage">
-<div class="stageName"> {{stage.name}}
-</div>
+<div class="stageName"> {{stage.name}}</div>
   <div class="stageContent">
   <div *ngFor="let task of stage.tasks">
     <app-task [moveEnabled]="moveEnabled" [backEnabled]="backEnabled" (moveTask)="onTaskMoved($event)"
@@ -8,12 +7,5 @@
   </div>
   </div>
 </div>
-<div class = "addTask" >
-  <div class='taskForm' title="Добавление новой задачи">
-    <div class="formName">Добавить задачу:</div>
-    <div class="formBlock"> <label> Заголовок </label> <input [(ngModel)]="taskName"></div>
-    <div class="formBlock"><label> Описание</label><input [(ngModel)]="taskContent"></div>
-    <div class="formBlock"><label> Приоритет</label><input [(ngModel)]="taskPriority"></div>
-  </div>
-  <button (click)="createTask()">Создать</button>
-</div>
+<app-task-form (create)="createTask($event)"></app-task-form>
+

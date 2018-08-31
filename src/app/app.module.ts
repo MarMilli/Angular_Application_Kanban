@@ -6,13 +6,15 @@ import {BoardComponent} from './board/board.component';
 import {StageComponent} from './stage/stage.component';
 import {TaskComponent} from './task/task.component';
 import {FormsModule} from '@angular/forms';
+import {TaskFormComponent} from './task-form/task-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
     StageComponent,
-    TaskComponent
+    TaskComponent,
+    TaskFormComponent
   ],
   imports: [
     BrowserModule,

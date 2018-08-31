@@ -7,9 +7,11 @@
   <div class="taskContent">
   <h2>{{task.title}}</h2>
   <p>
-    {{task.content}}
+    {{task.description}}<br>
+    Исполнитель: {{task.executor}}
   </p>
   <button *ngIf="backEnabled" (click)="backAhead()">Назад</button>
   <button *ngIf="moveEnabled" (click)="moveAhead()">Вперед</button>
   </div>
 </div>
+

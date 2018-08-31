@@ -16,10 +16,6 @@ export class StageComponent implements OnInit {
   @Input()
   backEnabled: boolean;
 
-  taskName: string;
-  taskContent: string;
-  taskPriority: number;
-
   @Output()
   moveTask: EventEmitter<Task> = new EventEmitter<Task>();
   @Output()
@@ -31,11 +27,8 @@ export class StageComponent implements OnInit {
   ngOnInit() {
   }
 
-  createTask() {
-    this.stage.tasks.push(new Task(this.taskName, this.taskContent, this.taskPriority ));
-    this.taskName = '';
-    this.taskContent = '';
-    this.taskPriority = 0;
+  createTask(task: Task) {
+    this.stage.tasks.push(task);
   }
 
   onTaskMoved($event: Task) {
