@@ -12,12 +12,11 @@
   margin: 3px;
   padding: 3px;
   overflow-y: auto;
-  max-height: calc(100vh - 210px);
+  max-height: calc(100vh - 140px - 185px);
 }
 app-task-form {
-  display: none;
-  margin-top: 5px;
-
+  /*display: none;*/
+  /*margin-top: 5px;*/
 }
 
 .stageHeader {

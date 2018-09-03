@@ -44,12 +44,9 @@ export class StageComponent implements OnInit {
   }
   windowAddTask(state, d) {
     d = document.getElementsByClassName(d);
+    if ( this.stage ) {
+      d.style.display = state; }
+    // let m = this.stage;
     // this.stage.indexOf();
-    let m = this.stage[i]; // определить какая статдия,indexOf
-    for ( let i = 0;  i < d.length; i++ ) {
-      if ( this.stages[i] ) { d[i].style.display = state;
-        console.log(this.stage[i]); }}
-    // document.getElementById('wrap').style.display = state;
-
   }
 }

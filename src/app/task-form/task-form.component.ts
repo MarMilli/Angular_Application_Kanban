@@ -19,7 +19,7 @@ export class TaskFormComponent implements OnInit {
   constructor() {
     this.taskForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      description: new FormControl('', [Validators.required, Validators.maxLength(250)]),
+      description: new FormControl('', [Validators.required, Validators.maxLength(150)]),
       priority: new FormControl(1, [Validators.required]),
       executor: new FormControl('Петров', [Validators.required]),
     });

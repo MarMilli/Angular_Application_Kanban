@@ -1,10 +1,12 @@
 <div class="stage">
   <div class="stageHeader">
     <div class="stageName"> {{stage.name}}</div>
-    <div title="Добавить задачу" class="taskAdd" (click)="windowAddTask('block', 'addTaskForm' )">
+    <!--<div *ngFor="let stage of stages; let i=index;" > </div>-->
+    <div title="Добавить задачу" class="taskAdd" (click)="windowAddTask('block', 'addTaskForm')">
     </div>
   </div>
-  <app-task-form class ="addTaskForm" (create)="createTask($event)"></app-task-form>
+
+
   <div class="stageContent">
     <div *ngFor="let task of stage.tasks">
       <app-task [moveEnabled]="moveEnabled" [backEnabled]="backEnabled" (moveTask)="onTaskMoved($event)"
@@ -12,4 +14,5 @@
     </div>
   </div>
 </div>
+<app-task-form class ="addTaskForm" (create)="createTask($event)"></app-task-form>
 
