@@ -1,0 +1,8 @@
+<div *ngIf="control.invalid">
+  <span class="warning"  *ngIf="control.errors.required">
+    Заполните форму
+  </span>
+  <span class="warning" *ngIf="control.errors.maxlength">
+    Многабукав
+  </span>
+</div>

@@ -1,11 +1,15 @@
-<div class = "stage">
-<div class="stageName"> {{stage.name}}</div>
-  <div class="stageContent">
-  <div *ngFor="let task of stage.tasks">
-    <app-task [moveEnabled]="moveEnabled" [backEnabled]="backEnabled" (moveTask)="onTaskMoved($event)"
-              (backTask)="inTaskMoved($event)" [task]="task"></app-task>
+<div class="stage">
+  <div class="stageHeader">
+    <div class="stageName"> {{stage.name}}</div>
+    <div title="Добавить задачу" class="taskAdd" (click)="windowAddTask('block', 'addTaskForm' )">
+    </div>
   </div>
+  <app-task-form class ="addTaskForm" (create)="createTask($event)"></app-task-form>
+  <div class="stageContent">
+    <div *ngFor="let task of stage.tasks">
+      <app-task [moveEnabled]="moveEnabled" [backEnabled]="backEnabled" (moveTask)="onTaskMoved($event)"
+                (backTask)="inTaskMoved($event)" [task]="task"></app-task>
+    </div>
   </div>
 </div>
-<app-task-form (create)="createTask($event)"></app-task-form>
 

@@ -4,9 +4,26 @@
   background: #e5f8ff;
   border-radius: 3px;
 }
-
 :host {
   width: 100%;
+}
+
+.stageContent {
+  margin: 3px;
+  padding: 3px;
+  overflow-y: auto;
+  max-height: calc(100vh - 210px);
+}
+app-task-form {
+  display: none;
+  margin-top: 5px;
+
+}
+
+.stageHeader {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }
 
 .stageName {
@@ -15,11 +32,16 @@
   font-weight: bold;
   font-size: 1.3rem;
   color: #116f6f;
-  text-align: center;
+  flex-grow: 9;
 }
-.stageContent {
-  margin: 3px;
-  padding: 3px;
-  overflow-y: auto;
-  max-height: calc(100vh - 210px);
+.taskAdd {
+  width: 30px;
+  height: 30px;
+  background: url("../../assets/image/plus.png") center no-repeat;
+  background-size: 30px 30px;
+  flex-grow: 1;
 }
+/*.taskAdd img {*/
+  /*width: 30px;*/
+  /*height: 30px;*/
+/*}*/

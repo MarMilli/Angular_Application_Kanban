@@ -16,7 +16,7 @@ import { ControlErrorComponent } from './control-error/control-error.component';
     StageComponent,
     TaskComponent,
     TaskFormComponent,
-    ControlErrorComponent
+    ControlErrorComponent,
   ],
   imports: [
     BrowserModule,

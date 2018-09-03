@@ -11,19 +11,36 @@ label {
   flex: none;
 }
 .taskForm {
-  display: flex;
-  flex-flow: row wrap;
   margin-bottom: 5px;
 }
-.formName {
-  width: 100%;
-  flex: none;
-  font-weight: bold;
+
+.formHeader {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }
-input {
-  width: 100%;
+.formName {
+  font-weight: bold;
+  flex-grow: 9;
+}
+.closeForm {
+  width: 30px;
+  height: 30px;
+  background: url("../../assets/image/Icon-set-assert.png") center no-repeat;
+  background-size: 30px 30px;
+  flex-grow: 1;
+}
+.formContent {
+  display: flex;
+  flex-flow: row wrap;
 }
 .formBlock {
+  margin-top: 5px;
+  flex-grow: 1;
+  width: 45%;
+  padding: 2px;
+}
+.formBlock:nth-of-type(2n+1)
+{
   margin-right: 10px;
 }
-

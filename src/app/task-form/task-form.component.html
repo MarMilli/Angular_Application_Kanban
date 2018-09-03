@@ -1,10 +1,16 @@
 <form class = "addTask" [formGroup]="taskForm" (submit)="createTask()">
   <div class='taskForm' title="Добавление новой задачи">
+    <div class="formHeader">
     <div class="formName">Добавить задачу:</div>
-    <div class="formBlock"> <label> Заголовок </label> <input formControlName="name"></div>
-    <app-control-error [control]="taskForm.controls.name"></app-control-error>
-    <div class="formBlock"><label> Описание</label><input formControlName="description"></div>
-    <app-control-error [control]="taskForm.controls.description"></app-control-error>
+    <div class="closeForm"></div>
+    </div>
+    <div class="formContent">
+    <div class="formBlock"> <label> Заголовок </label> <input formControlName="name">
+      <app-control-error [control]="taskForm.controls.name"></app-control-error>
+    </div>
+    <div class="formBlock"><label> Описание</label><input formControlName="description">
+      <app-control-error [control]="taskForm.controls.description"></app-control-error>
+    </div>
     <div class="formBlock"><label> Приоритет</label><select formControlName="priority">
       <option *ngFor="let priori of priority" [value]="priori">
         {{priori}}
@@ -15,6 +21,7 @@
       {{exec}}
       </option>
     </select></div>
+  </div>
   </div>
     <button type="submit">Создать</button>
 </form>

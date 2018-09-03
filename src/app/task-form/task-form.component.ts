@@ -14,14 +14,14 @@ export class TaskFormComponent implements OnInit {
 
   taskForm: FormGroup;
   priority: number [] = [1, 2, 3];
-  executors: string[] = ['Петров А.', 'Павлов М.'];
+  executors: string[] = ['Петров', 'Иванов', 'Сидоров'];
 
   constructor() {
     this.taskForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       description: new FormControl('', [Validators.required, Validators.maxLength(250)]),
       priority: new FormControl(1, [Validators.required]),
-      executor: new FormControl('Петров А.', [Validators.required]),
+      executor: new FormControl('Петров', [Validators.required]),
     });
   }
   ngOnInit() {
@@ -39,7 +39,7 @@ export class TaskFormComponent implements OnInit {
         name: '',
         description: '',
         priority: 1,
-        executor: 'Павлов М.'
+        executor: 'Петров'
       });
       this.create.emit(task);
     }

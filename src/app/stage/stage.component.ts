@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Stage} from '../stage';
+import {Stage, Stages} from '../stage';
 import {Task} from '../task';
 
 @Component({
@@ -20,6 +20,8 @@ export class StageComponent implements OnInit {
   moveTask: EventEmitter<Task> = new EventEmitter<Task>();
   @Output()
   backTask:  EventEmitter<Task> = new EventEmitter<Task>();
+
+  stages: Stage[] = Stages;
   constructor() {
 
   }
@@ -39,5 +41,15 @@ export class StageComponent implements OnInit {
   inTaskMoved($event: Task) {
     this.stage.tasks = this.stage.tasks.filter(value => value !== $event);
     this.backTask.emit($event);
+  }
+  windowAddTask(state, d) {
+    d = document.getElementsByClassName(d);
+    // this.stage.indexOf();
+    let m = this.stage[i]; // определить какая статдия,indexOf
+    for ( let i = 0;  i < d.length; i++ ) {
+      if ( this.stages[i] ) { d[i].style.display = state;
+        console.log(this.stage[i]); }}
+    // document.getElementById('wrap').style.display = state;
+
   }
 }
