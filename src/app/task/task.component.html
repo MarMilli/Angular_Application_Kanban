@@ -1,5 +1,21 @@
-<p>
-  Сделать: {{task.title}}, приоритет: {{task.priority}}
-</p>
+<div class='task'>
+  <div class="sectionNextPrevious">
+    <div class="previous" title="Назад" *ngIf="backEnabled" (click)="backAhead()">
+      <img src="assets/image/left_icon.png">
+    </div>
+    <div class="next" title="Вперед">
+      <img src="assets/image/right_icon.png" *ngIf="moveEnabled" (click)="moveAhead()">
+    </div>
+  </div>
+  <div class="sectionPrioritet">
+    <div class='prioritet'>
+      {{task.priority}}
+    </div>
+  </div>
+  <div class="taskContent">
+    <h2>{{task.title}}</h2>
+    <p> {{task.description}} </p>
+    <p><span class="executor">Исполнитель: </span>{{task.executor}}</p>
+  </div>
+</div>
 
-<button *ngIf="moveEnabled" (click)="moveAhead()">Вперед</button>

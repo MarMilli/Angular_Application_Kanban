@@ -1,0 +1,42 @@
+@ -9,13 +9,15 @@ import {Task} from '../task';
+export class TaskComponent implements OnInit {
+
+  @Input()
+  task: Task;
+  task: Task;  //свойство которое может получать данные
+
+  @Input()
+  moveEnabled: boolean;
+  moveEnabled: boolean; //настраиваемое событие, которое этот компонентможет передавать,
+  // которое его родитель сможет получить
+
+  @Output()
+  moveTask: EventEmitter<Task> = new EventEmitter<Task>();
+  moveTask: EventEmitter<Task> = new EventEmitter<Task>();//moveTask объявлен и настроен как EventEmitter - это встроенный класс, который
+  // поставляется с Angular, который дает нам методы для управления и запуска пользовательских событий
+
+  constructor() {
+  }
+@ -24,6 +26,7 @@ export class TaskComponent implements OnInit {
+  }
+
+  moveAhead() {
+    this.moveTask.emit(this.task);
+    this.moveTask.emit(this.task); //обработчик событий, который вызывает метод emit и передает ему данные,
+    //     // которые мы хотим отправить с событием
+  }
+}   
+
+
+
+<div *ngFor="let task of stage.tasks">
+  <app-task [moveEnabled]="moveEnabled" (moveTask)="onTaskMoved($event)" [task]="task"></app-task>
+  <!--[moveEnabled]="moveEnabled"  говорит Angular, чтобы установить свойство ввода task "moveEnabled" -->
+  <!--в значение "moveEnabled", интерполированное как свойство stage-->
+  <!--говорит Angular о вызове метода "onTaskMoved($ event) stage.ts, когда в task срабатывает "moveTask". -->
+  <!--Данные, которые мы передали методу event () в taskComp, доступный в stage, передавая «$ event» -->
+  <!--в качестве аргумента методу «onTaskMoved($event)»-->
+
+  <!--В обоих случаях левая сторона атрибута ссылается на что-то в task (входное свойство или выходное событие),-->
+  <!--а правая сторона относится к чему-то, что интерпретируется в контексте stage (свойство экземпляра или метод).-->
+</div>
