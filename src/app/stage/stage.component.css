@@ -1,22 +1,16 @@
 .stage {
   margin: 5px;
-  padding: 3px;
   background: #e5f8ff;
   border-radius: 3px;
 }
+
 :host {
   width: 100%;
 }
 
 .stageContent {
-  margin: 3px;
-  padding: 3px;
   overflow-y: auto;
-  max-height: calc(100vh - 140px - 185px);
-}
-app-task-form {
-  /*display: none;*/
-  /*margin-top: 5px;*/
+  max-height: calc(100vh - 140px);
 }
 
 .stageHeader {
@@ -33,14 +27,25 @@ app-task-form {
   color: #116f6f;
   flex-grow: 9;
 }
+
 .taskAdd {
   width: 30px;
   height: 30px;
-  background: url("../../assets/image/plus.png") center no-repeat;
-  background-size: 30px 30px;
-  flex-grow: 1;
+  background: url("../../assets/image/sprites_icon.png") no-repeat;
+  background-position: left top;
+  background-size: 59px auto;
+  flex: none;
+  border: 0;
+  padding: 0;
+  margin-right: 4px;
 }
-/*.taskAdd img {*/
-  /*width: 30px;*/
-  /*height: 30px;*/
-/*}*/
+
+.closeForm {
+  background-position: right top;
+}
+
+app-task-form {
+  display: none;
+  margin: 0;
+  border: solid 5px #a2d8d8e6;
+}

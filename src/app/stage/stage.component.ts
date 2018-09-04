@@ -19,9 +19,11 @@ export class StageComponent implements OnInit {
   @Output()
   moveTask: EventEmitter<Task> = new EventEmitter<Task>();
   @Output()
-  backTask:  EventEmitter<Task> = new EventEmitter<Task>();
+  backTask: EventEmitter<Task> = new EventEmitter<Task>();
 
-  stages: Stage[] = Stages;
+
+  n = true;
+
   constructor() {
 
   }
@@ -42,11 +44,23 @@ export class StageComponent implements OnInit {
     this.stage.tasks = this.stage.tasks.filter(value => value !== $event);
     this.backTask.emit($event);
   }
-  windowAddTask(state, d) {
+
+  windowAddTask(state, d, m) {
     d = document.getElementsByClassName(d);
-    if ( this.stage ) {
-      d.style.display = state; }
-    // let m = this.stage;
-    // this.stage.indexOf();
+    m = document.getElementsByClassName(m);
+    const i = this.stage.id;
+    if (this.n) {
+      d[i].style.display = state;
+      m[i].classList.add('closeForm');
+      this.n = false;
+    } else {
+      d[i].style.display = 'none';
+      m[i].classList.remove('closeForm');
+      this.n = true;
+    }
   }
-}
+   // console.log(this.stage);
+  // let m = this.stage; console.log(this.stage.id);
+  // this.stage.indexOf(); this.stage
+  }
+

@@ -4,18 +4,17 @@
       <img src="assets/image/left_icon.png">
     </div>
     <div class="next" title="Вперед">
-      <img  src="assets/image/right_icon.png" *ngIf="moveEnabled" (click)="moveAhead()">
+      <img src="assets/image/right_icon.png" *ngIf="moveEnabled" (click)="moveAhead()">
     </div>
   </div>
   <div class="sectionPrioritet">
-    <div class = 'prioritet'>
+    <div class='prioritet'>
       {{task.priority}}
     </div>
   </div>
   <div class="taskContent">
-  <h2>{{task.title}}</h2>
-  <p> {{task.description}}
-  </p>
+    <h2>{{task.title}}</h2>
+    <p> {{task.description}} </p>
     <p><span class="executor">Исполнитель: </span>{{task.executor}}</p>
   </div>
 </div>

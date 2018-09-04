@@ -3,18 +3,19 @@
   margin: 3px;
   padding: 5px;
   border-radius: 5px;
-  /*border-top: solid 2px #116f6f;*/
-  /*border: solid 2px #116f6f;*/
 }
+
 input {
   width: 95%;
 }
+
 label {
   display: block;
   font-size: 0.9rem;
   width: 50%;
   flex: none;
 }
+
 .taskForm {
   margin-bottom: 5px;
 }
@@ -24,21 +25,17 @@ label {
   flex-flow: row nowrap;
   align-items: center;
 }
+
 .formName {
   font-weight: bold;
   flex-grow: 11;
 }
-.closeForm {
-  width: 20px;
-  height: 28px;
-  background: url("../../assets/image/Icon-set-assert.png") center no-repeat;
-  background-size: 28px 28px;
-  flex-grow: 1;
-}
+
 .formContent {
   display: flex;
   flex-flow: row wrap;
 }
+
 .formBlock {
   margin-top: 5px;
   flex-grow: 1;
