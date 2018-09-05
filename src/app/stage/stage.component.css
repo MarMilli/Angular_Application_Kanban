@@ -33,11 +33,25 @@
   height: 30px;
   background: url("../../assets/image/sprites_icon.png") no-repeat;
   background-position: left top;
-  background-size: 59px auto;
+  background-size: 60px auto;
   flex: none;
   border: 0;
   padding: 0;
-  margin-right: 4px;
+  margin-right: 5px;
+  border-radius: 50%;
+  box-sizing: border-box;
+
+}
+.taskAdd:active,.taskAdd:focus {
+  outline: none;
+}
+.taskAdd:hover {
+  /*background-color: rgba(207, 227, 234, 0.83);*/
+  /*border: 2px solid #3696bb;*/
+  /*background-position: -2px -2px;*/
+  box-shadow: inset 0px 0px 1px 3px #a2d8d8;
+
+
 }
 
 .closeForm {
