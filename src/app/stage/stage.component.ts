@@ -11,6 +11,7 @@ export class StageComponent implements OnInit {
 
   @Input()
   stage: Stage;
+
   @Input()
   moveEnabled: boolean;
   @Input()
@@ -20,9 +21,8 @@ export class StageComponent implements OnInit {
   moveTask: EventEmitter<Task> = new EventEmitter<Task>();
   @Output()
   backTask: EventEmitter<Task> = new EventEmitter<Task>();
-
-
   n = true;
+
 
   constructor() {
 
@@ -35,6 +35,7 @@ export class StageComponent implements OnInit {
     this.stage.tasks.push(task);
   }
 
+
   onTaskMoved($event: Task) {
     this.stage.tasks = this.stage.tasks.filter(value => value !== $event);
     this.moveTask.emit($event);
@@ -45,22 +46,22 @@ export class StageComponent implements OnInit {
     this.backTask.emit($event);
   }
 
-  windowAddTask(state, d, m) {
+  windowAddTask(state, d, m, c) {
     d = document.getElementsByClassName(d);
     m = document.getElementsByClassName(m);
+    c = document.getElementsByClassName(c);
     const i = this.stage.id;
     if (this.n) {
       d[i].style.display = state;
       m[i].classList.add('closeForm');
+      c[i].classList.add('stageContent_active');
       this.n = false;
     } else {
       d[i].style.display = 'none';
       m[i].classList.remove('closeForm');
+      c[i].classList.remove('stageContent_active');
       this.n = true;
     }
   }
-   // console.log(this.stage);
-  // let m = this.stage; console.log(this.stage.id);
-  // this.stage.indexOf(); this.stage
   }
 

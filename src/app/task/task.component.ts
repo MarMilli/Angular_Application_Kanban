@@ -10,7 +10,8 @@ export class TaskComponent implements OnInit {
 
   @Input()
   task: Task;
-
+  @Input()
+  addClassPriority: string;
   @Input()
   moveEnabled: boolean;
   @Input()
@@ -25,6 +26,7 @@ export class TaskComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   moveAhead() {

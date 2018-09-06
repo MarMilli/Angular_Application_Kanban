@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Input, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Task} from '../task';
 
@@ -8,9 +8,12 @@ import {Task} from '../task';
   styleUrls: ['./task-form.component.css']
 })
 export class TaskFormComponent implements OnInit {
+  @Input()
 
   @Output()
   create: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output()
+  add: EventEmitter<string> = new EventEmitter<string>();
 
   taskForm: FormGroup;
   priority: number [] = [1, 2, 3];
@@ -42,6 +45,13 @@ export class TaskFormComponent implements OnInit {
         executor: 'Петров'
       });
       this.create.emit(task);
+      // const p = document.getElementById('task');
+      // console.log('priority ' + task.priority);
+      // p.className += <string>task.priority;
+      // p.classList.add('task_pr' + <string>task.priority);
+      const addClassPriority = 'task_pr' + <string>task.priority;
+      this.add.emit(addClassPriority);
     }
   }
 }
+
