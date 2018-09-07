@@ -9,12 +9,11 @@
 .stageContent {
   overflow-y: auto;
   max-height: calc(100vh - 124px);
+}
+.taskBlockContent {
   position: relative;
 }
-.taskContent {
-  position: relative;
-}
-.taskContent:before {
+.taskBlockContent:before {
   content: '';
   background: rgba(0,0,0,0.5);
   width: 100%;
@@ -22,7 +21,7 @@
   display: none;
   position: absolute;
 }
-.test_active:before {
+.taskBlockContent_active:before {
   display: block;
 }
 .stageHeader {
