@@ -1,8 +1,7 @@
 .addTask {
   background: #e5f8ff;
-  margin: 3px;
   padding: 5px;
-  border-radius: 5px;
+  border-top: solid 3px #a2d8d8;
 }
 
 input {

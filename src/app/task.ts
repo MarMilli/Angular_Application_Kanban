@@ -1,7 +1,7 @@
 export class Task {
   title: string;
   description: string;
-  priority: number;
+  priority: number|string;
   executor: string;
 
   constructor(title: string, description: string, priority: number, executor: string ) {

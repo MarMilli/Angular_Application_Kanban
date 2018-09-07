@@ -2,15 +2,17 @@
   <div class="stageHeader">
     <div class="stageName" #stagessName>{{stage.name}}</div>
     <button type="button" title="Добавить задачу" class="taskAdd"
-            (click)="windowAddTask('block', 'addTaskForm', 'taskAdd')">
+            (click)="windowAddTask('block', 'addTaskForm', 'taskAdd', 'taskContent')">
     </button>
     <div class="closeForm" title="Закрыть окно"></div>
   </div>
   <app-task-form class="addTaskForm" (create)="createTask($event)"></app-task-form>
   <div class="stageContent">
+    <div class = 'taskContent'>
     <div *ngFor="let task of stage.tasks">
-      <app-task [moveEnabled]="moveEnabled" [backEnabled]="backEnabled" (moveTask)="onTaskMoved($event)"
+      <app-task  [moveEnabled]="moveEnabled" [backEnabled]="backEnabled" (moveTask)="onTaskMoved($event)"
                 (backTask)="inTaskMoved($event)" [task]="task"></app-task>
+    </div>
     </div>
   </div>
 </div>

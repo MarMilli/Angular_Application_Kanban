@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Stage, Stages} from '../stage';
+import {Stage} from '../stage';
 import {Task} from '../task';
 
 @Component({
@@ -11,6 +11,7 @@ export class StageComponent implements OnInit {
 
   @Input()
   stage: Stage;
+
   @Input()
   moveEnabled: boolean;
   @Input()
@@ -21,11 +22,10 @@ export class StageComponent implements OnInit {
   @Output()
   backTask: EventEmitter<Task> = new EventEmitter<Task>();
 
+  toggle = true; // переключатель
 
-  n = true;
 
   constructor() {
-
   }
 
   ngOnInit() {
@@ -34,6 +34,7 @@ export class StageComponent implements OnInit {
   createTask(task: Task) {
     this.stage.tasks.push(task);
   }
+
 
   onTaskMoved($event: Task) {
     this.stage.tasks = this.stage.tasks.filter(value => value !== $event);
@@ -45,22 +46,26 @@ export class StageComponent implements OnInit {
     this.backTask.emit($event);
   }
 
-  windowAddTask(state, d, m) {
-    d = document.getElementsByClassName(d);
-    m = document.getElementsByClassName(m);
+  windowAddTask(state, addTaskForm, iconAddTaskForm, shadowTaskContent) {
+    addTaskForm = document.getElementsByClassName(addTaskForm); // возвращает набор элемментов с данным классом
+    iconAddTaskForm = document.getElementsByClassName(iconAddTaskForm);
+    shadowTaskContent = document.getElementsByClassName(shadowTaskContent);
     const i = this.stage.id;
-    if (this.n) {
-      d[i].style.display = state;
-      m[i].classList.add('closeForm');
-      this.n = false;
+    if (this.toggle) {
+      addTaskForm[i].style.display = state; // если toggle = true показывает форму добавления новой задачи
+      iconAddTaskForm[i].classList.add('closeForm'); // и меняет иконку с плюса на крестик
+      shadowTaskContent[i].classList.add('test_active'); // затемняет область задач
+      this.toggle = false;
     } else {
-      d[i].style.display = 'none';
-      m[i].classList.remove('closeForm');
-      this.n = true;
+      addTaskForm[i].style.display = 'none';
+      iconAddTaskForm[i].classList.remove('closeForm');
+      shadowTaskContent[i].classList.remove('test_active');
+      this.toggle = true;
     }
   }
-   // console.log(this.stage);
-  // let m = this.stage; console.log(this.stage.id);
-  // this.stage.indexOf(); this.stage
-  }
+}
 
+// const p = document.getElementById('task');
+// // console.log('priority ' + task.priority);
+// // p.className += <string>task.priority;
+// p.classList.add('priority ' + this.task.priority);
