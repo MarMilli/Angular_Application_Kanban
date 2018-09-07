@@ -11,7 +11,10 @@
   max-height: calc(100vh - 124px);
   position: relative;
 }
-.stageContent:before {
+.taskContent {
+  position: relative;
+}
+.taskContent:before {
   content: '';
   background: rgba(0,0,0,0.5);
   width: 100%;
@@ -19,7 +22,7 @@
   display: none;
   position: absolute;
 }
-.stageContent_active:before {
+.test_active:before {
   display: block;
 }
 .stageHeader {
@@ -54,11 +57,9 @@
 .taskAdd:hover {
   box-shadow: inset 0px 0px 1px 3px #a2d8d8;
 }
-
 .closeForm {
   background-position: right top;
 }
-
 app-task-form {
   display: none;
   margin: 0;

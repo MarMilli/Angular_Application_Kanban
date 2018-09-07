@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Stage, Stages} from '../stage';
+import {Stage} from '../stage';
 import {Task} from '../task';
 
 @Component({
@@ -21,11 +21,11 @@ export class StageComponent implements OnInit {
   moveTask: EventEmitter<Task> = new EventEmitter<Task>();
   @Output()
   backTask: EventEmitter<Task> = new EventEmitter<Task>();
-  n = true;
+
+  toggle = true; // переключатель
 
 
   constructor() {
-
   }
 
   ngOnInit() {
@@ -46,24 +46,24 @@ export class StageComponent implements OnInit {
     this.backTask.emit($event);
   }
 
-  windowAddTask(state, d, m, c) {
-    d = document.getElementsByClassName(d);
-    m = document.getElementsByClassName(m);
-    c = document.getElementsByClassName(c);
+  windowAddTask(state, addTaskForm, iconAddTaskForm, shadowTaskContent) {
+    addTaskForm = document.getElementsByClassName(addTaskForm); // возвращает набор элемментов с данным классом
+    iconAddTaskForm = document.getElementsByClassName(iconAddTaskForm);
+    shadowTaskContent = document.getElementsByClassName(shadowTaskContent);
     const i = this.stage.id;
-    if (this.n) {
-      d[i].style.display = state;
-      m[i].classList.add('closeForm');
-      c[i].classList.add('stageContent_active');
-      this.n = false;
+    if (this.toggle) {
+      addTaskForm[i].style.display = state; // если toggle = true показывает форму добавления новой задачи
+      iconAddTaskForm[i].classList.add('closeForm'); // и меняет иконку с плюса на крестик
+      shadowTaskContent[i].classList.add('test_active'); // затемняет область задач
+      this.toggle = false;
     } else {
-      d[i].style.display = 'none';
-      m[i].classList.remove('closeForm');
-      c[i].classList.remove('stageContent_active');
-      this.n = true;
+      addTaskForm[i].style.display = 'none';
+      iconAddTaskForm[i].classList.remove('closeForm');
+      shadowTaskContent[i].classList.remove('test_active');
+      this.toggle = true;
     }
   }
-  }
+}
 
 // const p = document.getElementById('task');
 // // console.log('priority ' + task.priority);
