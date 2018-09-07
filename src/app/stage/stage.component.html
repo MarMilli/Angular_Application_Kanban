@@ -9,7 +9,7 @@
                  (create)="createTask($event, 'addTaskForm', 'taskAdd', 'taskBlockContent')">
   </app-task-form>
   <div class="stageContent">
-    <div class = 'taskBlockContent'>
+    <div class = "taskBlockContent">
     <div *ngFor="let task of stage.tasks">
       <app-task  [moveEnabled]="moveEnabled" [backEnabled]="backEnabled" (moveTask)="onTaskMoved($event)"
                 (backTask)="inTaskMoved($event)" [task]="task"></app-task>
