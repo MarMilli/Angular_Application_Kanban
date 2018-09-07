@@ -5,7 +5,9 @@
             (click)="windowAddTask('block', 'addTaskForm', 'taskAdd', 'taskBlockContent')">
     </button>
   </div>
-  <app-task-form class="addTaskForm" (create)="createTask($event)"></app-task-form>
+  <app-task-form class="addTaskForm"
+                 (create)="createTask($event, 'addTaskForm', 'taskAdd', 'taskBlockContent')">
+  </app-task-form>
   <div class="stageContent">
     <div class = "taskBlockContent">
     <div *ngFor="let task of stage.tasks">
