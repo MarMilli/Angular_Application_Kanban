@@ -65,3 +65,7 @@ export class StageComponent implements OnInit {
   }
   }
 
+// const p = document.getElementById('task');
+// // console.log('priority ' + task.priority);
+// // p.className += <string>task.priority;
+// p.classList.add('priority ' + this.task.priority);
