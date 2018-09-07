@@ -1,4 +1,4 @@
-<div class='task addClassPriority?' id="task">
+<div class='task' id="task">
   <div class="sectionNextPrevious">
     <div class="previous" title="Назад" *ngIf="backEnabled" (click)="backAhead()">
       <img src="assets/image/left_icon.png">
@@ -7,8 +7,8 @@
       <img src="assets/image/right_icon.png" *ngIf="moveEnabled" (click)="moveAhead()">
     </div>
   </div>
-  <div class="sectionPrioritet">
-    <div class='prioritet' title="Приоритет">
+  <div class="sectionPriority">
+    <div class='priority' title="Приоритет">
       {{task.priority}}
     </div>
   </div>
