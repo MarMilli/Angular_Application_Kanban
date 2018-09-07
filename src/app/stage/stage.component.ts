@@ -37,10 +37,13 @@ export class StageComponent implements OnInit {
     addTaskForm = document.getElementsByClassName(addTaskForm); // возвращает набор элемментов с данным классом
     iconAddTaskForm = document.getElementsByClassName(iconAddTaskForm);
     shadowTaskContent = document.getElementsByClassName(shadowTaskContent);
+    console.log(shadowTaskContent);
     const j = this.stage.id;
     addTaskForm[j].style.display = 'none';
     iconAddTaskForm[j].classList.remove('closeForm');
-    shadowTaskContent[j].classList.remove('test_active');
+    console.log(shadowTaskContent[j]);
+    shadowTaskContent[j].classList.remove('taskBlockContent_active');
+    console.log(shadowTaskContent[j]);
     this.toggle = true;
   }
 
@@ -63,12 +66,12 @@ export class StageComponent implements OnInit {
     if (this.toggle) {
       addTaskForm[i].style.display = state; // если toggle = true показывает форму добавления новой задачи
       iconAddTaskForm[i].classList.add('closeForm'); // и меняет иконку с плюса на крестик
-      shadowTaskContent[i].classList.add('test_active'); // затемняет область задач
+      shadowTaskContent[i].classList.add('taskBlockContent_active'); // затемняет область задач
       this.toggle = false;
     } else {
       addTaskForm[i].style.display = 'none';
       iconAddTaskForm[i].classList.remove('closeForm');
-      shadowTaskContent[i].classList.remove('test_active');
+      shadowTaskContent[i].classList.remove('taskBlockContent_active');
       this.toggle = true;
     }
   }
