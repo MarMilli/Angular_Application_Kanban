@@ -51,7 +51,7 @@
   border-radius: 50%;
   box-sizing: border-box;
 }
-.taskAdd:active,.taskAdd:focus {
+.taskAdd:active {
   outline: none;
 }
 .taskAdd:hover {

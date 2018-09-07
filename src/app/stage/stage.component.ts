@@ -31,8 +31,17 @@ export class StageComponent implements OnInit {
   ngOnInit() {
   }
 
-  createTask(task: Task) {
+  createTask(task: Task, addTaskForm, iconAddTaskForm, shadowTaskContent ) {
     this.stage.tasks.push(task);
+    // закрываем окно добавления новой задачи
+    addTaskForm = document.getElementsByClassName(addTaskForm); // возвращает набор элемментов с данным классом
+    iconAddTaskForm = document.getElementsByClassName(iconAddTaskForm);
+    shadowTaskContent = document.getElementsByClassName(shadowTaskContent);
+    const j = this.stage.id;
+    addTaskForm[j].style.display = 'none';
+    iconAddTaskForm[j].classList.remove('closeForm');
+    shadowTaskContent[j].classList.remove('test_active');
+    this.toggle = true;
   }
 
 

@@ -4,9 +4,11 @@
     <button type="button" title="Добавить задачу" class="taskAdd"
             (click)="windowAddTask('block', 'addTaskForm', 'taskAdd', 'taskContent')">
     </button>
-    <div class="closeForm" title="Закрыть окно"></div>
+    <!--<div class="closeForm" title="Закрыть окно"></div>-->
   </div>
-  <app-task-form class="addTaskForm" (create)="createTask($event)"></app-task-form>
+  <app-task-form class="addTaskForm"
+                 (create)="createTask($event, 'addTaskForm', 'taskAdd', 'taskContent')">
+  </app-task-form>
   <div class="stageContent">
     <div class = 'taskContent'>
     <div *ngFor="let task of stage.tasks">
