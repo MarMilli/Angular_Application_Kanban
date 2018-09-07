@@ -13,9 +13,13 @@ export class TaskComponent implements OnInit {
 
   @Input()
   moveEnabled: boolean;
+  @Input()
+  backEnabled: boolean;
 
   @Output()
   moveTask: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output()
+  backTask: EventEmitter<Task> = new EventEmitter<Task>();
 
   constructor() {
   }
@@ -25,5 +29,8 @@ export class TaskComponent implements OnInit {
 
   moveAhead() {
     this.moveTask.emit(this.task);
+  }
+  backAhead() {
+    this.backTask.emit(this.task);
   }
 }

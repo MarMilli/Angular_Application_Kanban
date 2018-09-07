@@ -1,0 +1,51 @@
+.stage {
+  margin: 5px;
+  background: #e5f8ff;
+  border-radius: 3px;
+}
+
+:host {
+  width: 100%;
+}
+
+.stageContent {
+  overflow-y: auto;
+  max-height: calc(100vh - 140px);
+}
+
+.stageHeader {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.stageName {
+  padding: 3px;
+  margin: 5px;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #116f6f;
+  flex-grow: 9;
+}
+
+.taskAdd {
+  width: 30px;
+  height: 30px;
+  background: url("../../assets/image/sprites_icon.png") no-repeat;
+  background-position: left top;
+  background-size: 59px auto;
+  flex: none;
+  border: 0;
+  padding: 0;
+  margin-right: 4px;
+}
+
+.closeForm {
+  background-position: right top;
+}
+
+app-task-form {
+  display: none;
+  margin: 0;
+  border: solid 5px #a2d8d8e6;
+}
