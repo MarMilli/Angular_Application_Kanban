@@ -10,7 +10,6 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit, OnDestroy {
-
   stages: Stage[];
   getStagesSubscription: Subscription;
   constructor(private service: BackendService) {

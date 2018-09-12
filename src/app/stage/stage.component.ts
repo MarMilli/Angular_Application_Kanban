@@ -15,6 +15,8 @@ export class StageComponent implements OnInit, OnDestroy {
   @Input()
   stage: Stage;
   @Input()
+  task: Task;
+  @Input()
   moveEnabled: boolean;
   @Input()
   backEnabled: boolean;
@@ -27,7 +29,7 @@ export class StageComponent implements OnInit, OnDestroy {
   toggle = true; // переключатель
   getTasksByStageSubscription: Subscription;
   refreshStage = new Subject();
-
+  stages: Stage[];
   isEdit = false;
   stageName: string;
 
@@ -39,6 +41,7 @@ export class StageComponent implements OnInit, OnDestroy {
       .getTasksByStage(this.stage.id)
       .pipe(repeatWhen(() => this.refreshStage))
       .subscribe((tasks: Task[]) => this.stage.tasks = tasks);
+
   }
 
   createTask(task: Task, addTaskForm, iconAddTaskForm, shadowTaskContent ) {
@@ -49,13 +52,13 @@ export class StageComponent implements OnInit, OnDestroy {
         this.refreshStage.next();
         newTaskSubscription.unsubscribe();
       });
-  // this.stage.tasks.push(task);
+    // this.stage.tasks.push(task);
     // закрываем окно добавления новой задачи
     addTaskForm = document.getElementsByClassName(addTaskForm); // возвращает набор элемментов с данным классом
     iconAddTaskForm = document.getElementsByClassName(iconAddTaskForm);
     shadowTaskContent = document.getElementsByClassName(shadowTaskContent);
     console.log(shadowTaskContent);
-    const j = this.stage.id;
+    const j = this.stage.id - 1;
     addTaskForm[j].style.display = 'none';
     iconAddTaskForm[j].classList.remove('closeForm');
     console.log(shadowTaskContent[j]);
@@ -99,7 +102,10 @@ export class StageComponent implements OnInit, OnDestroy {
     addTaskForm = document.getElementsByClassName(addTaskForm); // возвращает набор элемментов с данным классом
     iconAddTaskForm = document.getElementsByClassName(iconAddTaskForm);
     shadowTaskContent = document.getElementsByClassName(shadowTaskContent);
-    const i = this.stage.id;
+    // for ( let j = 0; j < stages.lenght; j++) {
+    //   this.dataAtribut. = j + 1;
+    // }
+    const i = this.stage.id - 1;
     if (this.toggle) {
       addTaskForm[i].style.display = state; // если toggle = true показывает форму добавления новой задачи
       iconAddTaskForm[i].classList.add('closeForm'); // и меняет иконку с плюса на крестик

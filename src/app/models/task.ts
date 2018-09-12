@@ -2,7 +2,7 @@ export class Task {
   id: number;
   name: string;
   description: string;
-  priority: number|string;
+  priority: number;
   executor: string;
   stageId: number;
 

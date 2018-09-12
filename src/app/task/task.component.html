@@ -8,14 +8,39 @@
     </div>
   </div>
   <div class="sectionPriority">
-    <div class='priority' title="Приоритет">
+    <div class='priority' title="Приоритет"  *ngIf="!isEdit">
       {{task.priority}}
+    </div>
+    <div *ngIf="isEdit">
+      <select [(ngModel)]="taskPriority">
+        <option *ngFor="let priori of priority" [value]="priori">
+          {{priori}}
+        </option>
+      </select>
     </div>
   </div>
   <div class="taskContent">
-    <h2>{{task.name}}</h2>
-    <p> {{task.description}} </p>
-    <p><span class="executor">Исполнитель: </span>{{task.executor}}</p>
+    <div *ngIf="!isEdit">
+      <h2>{{task.name}}</h2>
+      <p> {{task.description}} </p>
+      <p><span class="executor">Исполнитель: </span>{{task.executor}}</p>
+      <button (click)="onEditStart()">Edit</button>
+      <button (click)="onDelete()">Delete</button>
+    </div>
+    <div *ngIf="isEdit">
+      <input [(ngModel)]="taskName">
+      <input [(ngModel)]="taskDescription">
+      <select [(ngModel)]="executorName">
+        <option *ngFor="let exec of executors" [value]="exec">
+          {{exec}}
+        </option>
+      </select>
+      <p>
+        <button (click)="onEditFinish()">Сохранить</button>
+        <button (click)="onEditCancel()">Отмена</button> </p>
+    </div>
+
   </div>
+
 </div>
 

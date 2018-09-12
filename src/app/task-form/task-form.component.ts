@@ -35,8 +35,8 @@ export class TaskFormComponent implements OnInit {
     this.taskForm.reset({
       taskName: '',
       taskDescription: '',
-      taskPriority: this.priority[1],
-      executorName: this.executors[1]
+      taskPriority: this.priority[0],
+      executorName: this.executors[0]
     });
   }
 

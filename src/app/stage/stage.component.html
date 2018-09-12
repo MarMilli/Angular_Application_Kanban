@@ -2,7 +2,7 @@
   <div class="stageHeader">
     <div class="stageName" *ngIf="!isEdit">
       {{stage.name}}
-      <button (click)="onEditStart()">Редактировать</button>
+      <button (click)="onEditStart()">Edit</button>
     </div>
     <div *ngIf="isEdit">
       <input [(ngModel)]="stageName">
