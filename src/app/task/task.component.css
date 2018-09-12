@@ -71,3 +71,29 @@ p {
 .executor {
   font-weight: bold;
 }
+.editTask {
+  width: 30px;
+  height: 30px;
+  background: url("../../assets/image/edit-regular.svg") center no-repeat;
+  background-size: 25px 25px;
+  border: 0;
+  padding: 0;
+  margin-right: 5px;
+  align-self: flex-start;
+}
+
+.deleteTask {
+  width: 30px;
+  height: 30px;
+  background: url("../../assets/image/delete-icon.png") center no-repeat;
+  background-size: 25px 25px;
+  border: 0;
+  padding: 0;
+  margin-right: 5px;
+  align-self: flex-end;
+}
+.button {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

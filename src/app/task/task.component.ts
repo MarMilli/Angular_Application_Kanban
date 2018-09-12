@@ -2,8 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Task} from '../models/task';
 import {BackendService} from '../backend.service';
 import {Stage} from '../models/stage';
-import {Subject, Subscription} from 'rxjs';
-import {repeatWhen} from 'rxjs/operators';
+// import {Subject, Subscription} from 'rxjs';
+// import {repeatWhen} from 'rxjs/operators';
 
 @Component({
   selector: 'app-task',
@@ -22,11 +22,15 @@ export class TaskComponent implements OnInit {
   moveEnabled: boolean;
   @Input()
   backEnabled: boolean;
+  // @Input()
+  // refreshStage: Subject;
 
   @Output()
   moveTask: EventEmitter<Task> = new EventEmitter<Task>();
   @Output()
   backTask: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output()
+  updateStage: EventEmitter<Stage> = new EventEmitter<Stage>();
 
   isEdit = false;
   taskName: string;
@@ -35,6 +39,7 @@ export class TaskComponent implements OnInit {
   executors: string[] = ['Петров', 'Иванов', 'Сидоров'];
   taskPriority: number;
   priority: number [] = [1, 2, 3];
+  // refreshStage = new Subject();
   constructor(private service: BackendService) {
   }
 
@@ -47,11 +52,14 @@ export class TaskComponent implements OnInit {
   backAhead() {
     this.backTask.emit(this.task);
   }
+
   onDelete() {
     const deleteTaskSubscription = this.service
       .deleteTask(this.task)
-      .subscribe(() => deleteTaskSubscription.unsubscribe());
-
+      .subscribe(() => {
+        // this.refreshStage.next();
+        deleteTaskSubscription.unsubscribe();
+      });
   }
   onEditStart() {
     this.isEdit = true;
@@ -71,8 +79,8 @@ export class TaskComponent implements OnInit {
       .updateTask(this.task)
       .subscribe(() => updateTaskSubscription.unsubscribe());
   }
-
   onEditCancel() {
     this.isEdit = false;
   }
+
 }

@@ -67,3 +67,13 @@ app-task-form {
   z-index: 1;
 }
 
+.editStage {
+  width: 30px;
+  height: 30px;
+  background: url("../../assets/image/edit-regular.svg") center no-repeat;
+  background-size: 25px 25px;
+  border: 0;
+  padding: 0;
+  flex: none;
+  margin-right: 5px;
+}

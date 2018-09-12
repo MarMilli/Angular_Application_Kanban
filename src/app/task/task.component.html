@@ -24,9 +24,11 @@
       <h2>{{task.name}}</h2>
       <p> {{task.description}} </p>
       <p><span class="executor">Исполнитель: </span>{{task.executor}}</p>
-      <button (click)="onEditStart()">Edit</button>
-      <button (click)="onDelete()">Delete</button>
-    </div>
+      <div class="button">
+        <button class="editTask" (click)="onEditStart()"></button>
+        <button class="deleteTask" (click)="onDelete()"></button>
+        <div>
+        </div>
     <div *ngIf="isEdit">
       <input [(ngModel)]="taskName">
       <input [(ngModel)]="taskDescription">

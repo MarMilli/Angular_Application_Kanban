@@ -25,6 +25,8 @@ export class StageComponent implements OnInit, OnDestroy {
   moveTask: EventEmitter<Task> = new EventEmitter<Task>();
   @Output()
   backTask: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output()
+  updateTask: EventEmitter<Task> = new EventEmitter<Task>();
 
   toggle = true; // переключатель
   getTasksByStageSubscription: Subscription;
