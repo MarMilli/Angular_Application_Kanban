@@ -6,8 +6,8 @@ export class Task {
   executor: string;
   stageId: number;
 
-  constructor( title: string, description: string, priority: number, executor: string ) {
-    this.name = title;
+  constructor( name: string, description: string, priority: number, executor: string ) {
+    this.name = name;
     this.description = description;
     this.priority = priority;
     this.executor = executor;
