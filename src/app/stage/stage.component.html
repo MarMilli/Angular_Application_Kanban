@@ -1,6 +1,14 @@
 <div class="stage">
   <div class="stageHeader">
-    <div class="stageName" #stagessName>{{stage.name}}</div>
+    <div class="stageName" *ngIf="!isEdit">
+      {{stage.name}}
+      <button (click)="onEditStart()">Редактировать</button>
+    </div>
+    <div *ngIf="isEdit">
+      <input [(ngModel)]="stageName">
+      <button (click)="onEditFinish()">Сохранить</button>
+      <button (click)="onEditCancel()">Отмена</button>
+    </div>
     <button type="button" title="Добавить задачу" class="taskAdd"
             (click)="windowAddTask('block', 'addTaskForm', 'taskAdd', 'taskBlockContent')">
     </button>
