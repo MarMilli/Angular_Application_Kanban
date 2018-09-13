@@ -23,15 +23,14 @@ export class TaskComponent implements OnInit {
   @Input()
   backEnabled: boolean;
   // @Input()
-  // refreshStage: Subject;
+  // refreshStage: null;
 
   @Output()
   moveTask: EventEmitter<Task> = new EventEmitter<Task>();
   @Output()
   backTask: EventEmitter<Task> = new EventEmitter<Task>();
-  @Output()
-  updateStage: EventEmitter<Stage> = new EventEmitter<Stage>();
 
+  isOpen = false;
   isEdit = false;
   taskName: string;
   taskDescription: string;
@@ -39,7 +38,6 @@ export class TaskComponent implements OnInit {
   executors: string[] = ['Петров', 'Иванов', 'Сидоров'];
   taskPriority: number;
   priority: number [] = [1, 2, 3];
-  // refreshStage = new Subject();
   constructor(private service: BackendService) {
   }
 
@@ -61,6 +59,8 @@ export class TaskComponent implements OnInit {
         deleteTaskSubscription.unsubscribe();
       });
   }
+
+
   onEditStart() {
     this.isEdit = true;
     this.taskName = this.task.name;
@@ -81,6 +81,9 @@ export class TaskComponent implements OnInit {
   }
   onEditCancel() {
     this.isEdit = false;
+  }
+  dropdownMenu() {
+    this.isOpen = ! this.isOpen;
   }
 
 }

@@ -1,34 +1,39 @@
 <div class='task' id="task">
+  <div class="sectionBottom">
+    <div class="sectionPriority">
+      <div class='priority' title="Приоритет"  *ngIf="!isEdit">
+        {{task.priority}}
+      </div>
+      <div *ngIf="isEdit">
+        <select [(ngModel)]="taskPriority">
+          <option *ngFor="let priori of priority" [value]="priori">
+            {{priori}}
+          </option>
+        </select>
+      </div>
+    </div>
+
   <div class="sectionNextPrevious">
-    <div class="previous" title="Назад" *ngIf="backEnabled" (click)="backAhead()">
-      <img src="assets/image/left_icon.png">
-    </div>
-    <div class="next" title="Вперед">
-      <img src="assets/image/right_icon.png" *ngIf="moveEnabled" (click)="moveAhead()">
-    </div>
-  </div>
-  <div class="sectionPriority">
-    <div class='priority' title="Приоритет"  *ngIf="!isEdit">
-      {{task.priority}}
-    </div>
-    <div *ngIf="isEdit">
-      <select [(ngModel)]="taskPriority">
-        <option *ngFor="let priori of priority" [value]="priori">
-          {{priori}}
-        </option>
-      </select>
+    <button  *ngIf="!isOpen" class="dropdownMenuOpen" (click)="dropdownMenu()"> </button>
+    <button  *ngIf="isOpen" class="dropdownMenuClose" (click)="dropdownMenu()"> </button>
+    <div class="dropdownMenu" *ngIf="isOpen">
+      <div class="previous" title="Назад" *ngIf="backEnabled" (click)="backAhead()">
+        <img src="assets/image/left_icon.png"></div>
+      <div class="next" title="Вперед">
+        <img src="assets/image/right_icon.png" *ngIf="moveEnabled" (click)="moveAhead()"></div>
+      <button class="editTask" (click)="onEditStart()"></button>
+      <button class="deleteTask" (click)="onDelete()"></button>
     </div>
   </div>
+
+
+  </div> <!--sectionBottom-->
   <div class="taskContent">
     <div *ngIf="!isEdit">
       <h2>{{task.name}}</h2>
       <p> {{task.description}} </p>
       <p><span class="executor">Исполнитель: </span>{{task.executor}}</p>
-      <div class="button">
-        <button class="editTask" (click)="onEditStart()"></button>
-        <button class="deleteTask" (click)="onDelete()"></button>
-        <div>
-        </div>
+    </div>
     <div *ngIf="isEdit">
       <input [(ngModel)]="taskName">
       <input [(ngModel)]="taskDescription">
@@ -37,9 +42,9 @@
           {{exec}}
         </option>
       </select>
-      <p>
+      <div>
         <button (click)="onEditFinish()">Сохранить</button>
-        <button (click)="onEditCancel()">Отмена</button> </p>
+        <button (click)="onEditCancel()">Отмена</button> </div>
     </div>
 
   </div>

@@ -27,6 +27,8 @@ export class StageComponent implements OnInit, OnDestroy {
   backTask: EventEmitter<Task> = new EventEmitter<Task>();
   @Output()
   updateTask: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output()
+  refreshStates: EventEmitter<null> = new EventEmitter<null>();
 
   toggle = true; // переключатель
   getTasksByStageSubscription: Subscription;
@@ -52,9 +54,9 @@ export class StageComponent implements OnInit, OnDestroy {
       .createNewTask(task)
       .subscribe(() => {
         this.refreshStage.next();
+        // this.refreshStates.emit();
         newTaskSubscription.unsubscribe();
       });
-    // this.stage.tasks.push(task);
     // закрываем окно добавления новой задачи
     addTaskForm = document.getElementsByClassName(addTaskForm); // возвращает набор элемментов с данным классом
     iconAddTaskForm = document.getElementsByClassName(iconAddTaskForm);

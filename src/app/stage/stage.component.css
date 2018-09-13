@@ -77,3 +77,25 @@ app-task-form {
   flex: none;
   margin-right: 5px;
 }
+.stageName input {
+  width: 95%;
+  border: 1px solid #cecece;
+  border-radius: 8px;
+  padding: 6px;
+}
+.stageName button {
+  border: #116f6f 1px solid;
+  color: #116f6f;
+  text-decoration: none;
+  background-color: transparent;
+  padding: 5px;
+  font-weight: bold;
+  transition: .5s;
+  border-radius: 0px;
+  text-align: center;
+  margin: 7px 3px 3px 3px;
+}
+.stageName button:hover {
+  transition: .5s;
+  border-radius: 8px;
+}

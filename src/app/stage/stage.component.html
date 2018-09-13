@@ -3,10 +3,10 @@
     <div class="stageName" *ngIf="!isEdit">
       {{stage.name}}
     </div>
-    <div *ngIf="isEdit">
+    <div class="stageName" *ngIf="isEdit">
       <input [(ngModel)]="stageName">
-      <button (click)="onEditFinish()">Сохранить</button>
-      <button (click)="onEditCancel()">Отмена</button>
+      <div><button (click)="onEditFinish()">Сохранить</button>
+        <button (click)="onEditCancel()">Отмена</button></div>
     </div>
     <button title="Редактировать название стадии" class="editStage" (click)="onEditStart()"></button>
     <button type="button" title="Добавить задачу" class="taskAdd"
