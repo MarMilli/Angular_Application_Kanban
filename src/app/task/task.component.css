@@ -1,10 +1,13 @@
+* {
+  outline: none;
+}
 p {
   padding: 0;
   margin: 0;
 }
 .task {
   background: url('../../assets/image/note-pin-paper3.png') no-repeat;
-  background-size: 100% 200px;
+  background-size: 100% 105%;
   font-family: 'Bad Script', cursive;
   margin: 9px 3px 1px 3px;
   text-align: center;
@@ -27,7 +30,7 @@ p {
 /*}*/
 
 .taskContent {
-  padding: 0 30px 0 30px;
+  padding: 0 30px 5px 30px;
 }
 .dropdownMenu img {
   width: 30px;
@@ -48,16 +51,27 @@ p {
 }
 .sectionNextPrevious {
   margin-right: 15px;
+  width: 42px;
+  height: 30px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .next {
-  margin-left: 2px;
+  width: 30px;
+  height: 30px;
+  flex: none;
 }
-
+.previous {
+  width: 30px;
+  height: 30px;
+  flex: none;
+}
 .sectionPriority {
   display: flex;
   justify-content: flex-start;
-  margin-left: 20px;
+  margin-left: 25px;
   font-size: 1.3rem;
   line-height: 1.6;
   font-family: 'Neucha', cursive;
@@ -78,56 +92,56 @@ p {
 .editTask {
   width: 30px;
   height: 30px;
-  background: url("../../assets/image/edit-regular.svg") center no-repeat;
-  background-size: 25px 25px;
+  background: url("../../assets/image/Files-Edit-File-icon.png") center no-repeat;
+  background-size: 30px 30px;
   border: 0;
   padding: 0;
-  margin-right: 5px;
 }
 
 .deleteTask {
   width: 30px;
   height: 30px;
-  background: url("../../assets/image/delete-icon.png") center no-repeat;
-  background-size: 25px 25px;
+  background: url("../../assets/image/Delete-File-icon.png") center no-repeat;
+  background-size: 29px 29px;
   border: 0;
   padding: 0;
-  margin-right: 5px;
 }
 .button {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-.dropdownMenuOpen {
+.dropdownMenuButton {
   display: flex;
   justify-content: flex-end;
   width: 30px;
   height: 30px;
+  border: 0;
+  padding: 0;
+  margin: 0 auto;
+}
+.open {
   background: url("../../assets/image/burger-icon.png") center no-repeat;
   background-size: 30px 30px;
-  border: 0;
-  padding: 0;
-  margin-right: 5px;
-
 }
-.dropdownMenu {
-  position: absolute;
-  display: flex;
-  /*flex-direction: column;*/
-  /*justify-content: center;*/
-  flex-flow: column wrap;
-  margin: 3px;
-  border-radius: 2px;
-}
-.dropdownMenuClose {
-  width: 30px;
-  height: 30px;
+.close {
   background: url("../../assets/image/close-icon.png") center no-repeat;
   background-size: 30px 30px;
-  border: 0;
-  padding: 0;
 }
+.dropdownMenu {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column wrap;
+  margin: 3px;
+  height: 135px;
+  background: #ccbd88;
+  padding: 4px 6px 4px 6px;
+  border-radius: 3px;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+}
+
 input {
   width: 70%;
   border: 1px solid #cecece;
@@ -135,7 +149,7 @@ input {
   padding: 6px;
   margin-bottom: 3px;
 }
-button {
+.taskContent button {
   border: #000000 1px solid;
   color: #000000;
   background-color: transparent;
@@ -146,11 +160,11 @@ button {
   text-align: center;
   margin: 7px 3px 3px 3px;
 }
-button:hover {
+.taskContent button:hover {
   transition: .5s;
   border-radius: 8px;
 }
-select {
+.taskContent select {
   padding: 5px;
   border: 1px solid #cecece;
 }

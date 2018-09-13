@@ -5,8 +5,10 @@
     </div>
     <div class="stageName" *ngIf="isEdit">
       <input [(ngModel)]="stageName">
-      <div><button (click)="onEditFinish()">Сохранить</button>
-        <button (click)="onEditCancel()">Отмена</button></div>
+      <div>
+        <button (click)="onEditFinish()">Сохранить</button>
+        <button (click)="onEditCancel()">Отмена</button>
+      </div>
     </div>
     <button title="Редактировать название стадии" class="editStage" (click)="onEditStart()"></button>
     <button type="button" title="Добавить задачу" class="taskAdd"
@@ -17,13 +19,12 @@
                  (create)="createTask($event, 'addTaskForm', 'taskAdd', 'taskBlockContent')">
   </app-task-form>
   <div class="stageContent">
-    <div class = "taskBlockContent">
-    <div *ngFor="let task of stage.tasks">
-      <app-task  [moveEnabled]="moveEnabled" [backEnabled]="backEnabled" (moveTask)="onTaskMoved($event)"
-                (backTask)="inTaskMoved($event)" [task]="task"></app-task>
-    </div>
+    <div class="taskBlockContent">
+      <div *ngFor="let task of stage.tasks">
+        <app-task [moveEnabled]="moveEnabled" [backEnabled]="backEnabled" (moveTask)="onTaskMoved($event)"
+                  (backTask)="inTaskMoved($event)" [task]="task"></app-task>
+      </div>
     </div>
   </div>
 </div>
-
 

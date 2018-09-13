@@ -2,33 +2,41 @@
   background: #e5f8ff;
   border-radius: 3px;
   position: relative;
+  padding-bottom: 8px;
 }
+
 :host {
   width: 100%;
 }
+
 .stageContent {
   overflow-y: auto;
   max-height: calc(100vh - 124px);
 }
+
 .taskBlockContent {
   position: relative;
 }
+
 .taskBlockContent:before {
   content: '';
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 100%;
   display: none;
   position: absolute;
 }
+
 .taskBlockContent_active:before {
   display: block;
 }
+
 .stageHeader {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
 }
+
 .stageName {
   padding: 3px;
   margin: 5px;
@@ -37,6 +45,7 @@
   color: #116f6f;
   flex-grow: 9;
 }
+
 .taskAdd {
   width: 30px;
   height: 30px;
@@ -50,15 +59,19 @@
   border-radius: 50%;
   box-sizing: border-box;
 }
+
 .taskAdd:active {
   outline: none;
 }
+
 .taskAdd:hover {
   box-shadow: inset 0px 0px 1px 3px #a2d8d8;
 }
+
 .closeForm {
   background-position: right top;
 }
+
 app-task-form {
   display: none;
   margin: 0;
@@ -70,19 +83,21 @@ app-task-form {
 .editStage {
   width: 30px;
   height: 30px;
-  background: url("../../assets/image/edit-regular.svg") center no-repeat;
+  background: url("../../assets/image/Files-Edit-File-icon.png") center no-repeat;
   background-size: 25px 25px;
   border: 0;
   padding: 0;
   flex: none;
   margin-right: 5px;
 }
+
 .stageName input {
   width: 95%;
   border: 1px solid #cecece;
   border-radius: 8px;
   padding: 6px;
 }
+
 .stageName button {
   border: #116f6f 1px solid;
   color: #116f6f;
@@ -95,7 +110,12 @@ app-task-form {
   text-align: center;
   margin: 7px 3px 3px 3px;
 }
+
 .stageName button:hover {
   transition: .5s;
   border-radius: 8px;
+}
+
+.addTaskForm {
+  z-index: 2;
 }

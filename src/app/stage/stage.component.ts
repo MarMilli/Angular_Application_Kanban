@@ -48,7 +48,7 @@ export class StageComponent implements OnInit, OnDestroy {
 
   }
 
-  createTask(task: Task, addTaskForm, iconAddTaskForm, shadowTaskContent ) {
+  createTask(task: Task, addTaskForm, iconAddTaskForm, shadowTaskContent) {
     task.stageId = this.stage.id;
     const newTaskSubscription = this.service
       .createNewTask(task)
@@ -102,13 +102,11 @@ export class StageComponent implements OnInit, OnDestroy {
   onEditCancel() {
     this.isEdit = false;
   }
+
   windowAddTask(state, addTaskForm, iconAddTaskForm, shadowTaskContent) {
     addTaskForm = document.getElementsByClassName(addTaskForm); // возвращает набор элемментов с данным классом
     iconAddTaskForm = document.getElementsByClassName(iconAddTaskForm);
     shadowTaskContent = document.getElementsByClassName(shadowTaskContent);
-    // for ( let j = 0; j < stages.lenght; j++) {
-    //   this.dataAtribut. = j + 1;
-    // }
     const i = this.stage.id - 1;
     if (this.toggle) {
       addTaskForm[i].style.display = state; // если toggle = true показывает форму добавления новой задачи
@@ -123,8 +121,3 @@ export class StageComponent implements OnInit, OnDestroy {
     }
   }
 }
-
-// const p = document.getElementById('task');
-// // console.log('priority ' + task.priority);
-// // p.className += <string>task.priority;
-// p.classList.add('priority ' + this.task.priority);

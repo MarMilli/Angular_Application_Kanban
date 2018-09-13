@@ -1,7 +1,7 @@
 <div class='task' id="task">
   <div class="sectionBottom">
     <div class="sectionPriority">
-      <div class='priority' title="Приоритет"  *ngIf="!isEdit">
+      <div class='priority' title="Приоритет" *ngIf="!isEdit">
         {{task.priority}}
       </div>
       <div *ngIf="isEdit">
@@ -13,21 +13,20 @@
       </div>
     </div>
 
-  <div class="sectionNextPrevious">
-    <button  *ngIf="!isOpen" class="dropdownMenuOpen" (click)="dropdownMenu()"> </button>
-    <button  *ngIf="isOpen" class="dropdownMenuClose" (click)="dropdownMenu()"> </button>
-    <div class="dropdownMenu" *ngIf="isOpen">
-      <div class="previous" title="Назад" *ngIf="backEnabled" (click)="backAhead()">
-        <img src="assets/image/left_icon.png"></div>
-      <div class="next" title="Вперед">
-        <img src="assets/image/right_icon.png" *ngIf="moveEnabled" (click)="moveAhead()"></div>
-      <button class="editTask" (click)="onEditStart()"></button>
-      <button class="deleteTask" (click)="onDelete()"></button>
+    <div class="sectionNextPrevious">
+      <button title="Открыть меню" *ngIf="!isOpen" class="dropdownMenuButton open" (click)="dropdownMenu()"></button>
+      <button title="Закрыть меню" *ngIf="isOpen" class="dropdownMenuButton close" (click)="dropdownMenu()"></button>
+      <div class="dropdownMenu" *ngIf="isOpen">
+        <div class="previous" title="Назад" *ngIf="backEnabled" (click)="backAhead()">
+          <img src="assets/image/left_icon.png"></div>
+        <div class="next" title="Вперед">
+          <img src="assets/image/right_icon.png" *ngIf="moveEnabled" (click)="moveAhead()"></div>
+        <button title="Редактировать задачу" class="editTask" (click)="onEditStart(); dropdownMenu()"></button>
+        <button title="Удалить задачу" class="deleteTask" (click)="onDelete(); dropdownMenu()"></button>
+      </div>
     </div>
-  </div>
-
-
   </div> <!--sectionBottom-->
+
   <div class="taskContent">
     <div *ngIf="!isEdit">
       <h2>{{task.name}}</h2>
@@ -44,9 +43,9 @@
       </select>
       <div>
         <button (click)="onEditFinish()">Сохранить</button>
-        <button (click)="onEditCancel()">Отмена</button> </div>
+        <button (click)="onEditCancel()">Отмена</button>
+      </div>
     </div>
-
   </div>
 
 </div>
