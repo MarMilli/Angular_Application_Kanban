@@ -1,25 +1,27 @@
-<form class="addTask" [formGroup]="taskForm" (submit)="createTask()">
+<form class="addTask"  (submit)="createTask()" [formGroup]="taskForm">
   <div class='taskForm' title="Добавление новой задачи">
     <div class="formHeader">
       <div class="formName">Добавить задачу:</div>
     </div>
     <div class="formContent">
-      <div class="formBlock"><label> Заголовок </label> <input formControlName="name">
-        <app-control-error [control]="taskForm.controls.name"></app-control-error>
+      <div class="formBlock"><label> Заголовок </label> <input formControlName="taskName">
+        <app-control-error [control]="taskForm.controls.taskName"></app-control-error>
       </div>
-      <div class="formBlock"><label> Описание</label><input formControlName="description">
-        <app-control-error [control]="taskForm.controls.description"></app-control-error>
+      <div class="formBlock"><label> Описание</label><input formControlName="taskDescription">
+        <app-control-error [control]="taskForm.controls.taskDescription"></app-control-error>
       </div>
-      <div class="formBlock"><label> Приоритет</label><select formControlName="priority">
+      <div class="formBlock"><label> Приоритет</label><select formControlName="taskPriority">
         <option *ngFor="let priori of priority" [value]="priori">
           {{priori}}
         </option>
       </select></div>
-      <div class="formBlock"><label> Исполнитель</label><select formControlName="executor">
+      <app-control-error [control]="taskForm.controls.taskPriority"></app-control-error>
+      <div class="formBlock"><label> Исполнитель</label><select formControlName="executorName">
         <option *ngFor="let exec of executors" [value]="exec">
           {{exec}}
         </option>
       </select></div>
+      <app-control-error [control]="taskForm.controls.executorName"></app-control-error>
     </div>
   </div>
   <button type="submit">Создать</button>

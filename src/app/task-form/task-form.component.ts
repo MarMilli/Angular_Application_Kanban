@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Input, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Task} from '../task';
+import {Task} from '../models/task';
 
 @Component({
   selector: 'app-task-form',
@@ -17,31 +17,28 @@ export class TaskFormComponent implements OnInit {
 
   constructor() {
     this.taskForm = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      description: new FormControl('', [Validators.required, Validators.maxLength(150)]),
-      priority: new FormControl(1, [Validators.required]),
-      executor: new FormControl('Петров', [Validators.required]),
+      taskName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      taskDescription: new FormControl('', [Validators.required, Validators.maxLength(150)]),
+      taskPriority: new FormControl(1, [Validators.required]),
+      executorName: new FormControl('Петров', [Validators.required]),
     });
   }
   ngOnInit() {
   }
   createTask() {
-    if (this.taskForm.valid) {
-      const value: {
-        name: string,
-        description: string,
-        priority: number,
-        executor: string
-      } = this.taskForm.value;
-      const task = new Task(value.name, value.description, value.priority, value.executor);
-      this.taskForm.reset({
-        name: '',
-        description: '',
-        priority: 1,
-        executor: 'Петров'
-      });
-      this.create.emit(task);
+    if (this.taskForm.invalid) {
+      return;
     }
+    const value = this.taskForm.value;
+    const task = new Task(value.taskName, value.taskDescription, value.taskPriority, value.executorName);
+    this.create.emit(task);
+    this.taskForm.reset({
+      taskName: '',
+      taskDescription: '',
+      taskPriority: this.priority[0],
+      executorName: this.executors[0]
+    });
   }
+
 }
 

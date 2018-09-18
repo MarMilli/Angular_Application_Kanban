@@ -1,6 +1,13 @@
+* {
+  outline: none;
+}
+p {
+  padding: 0;
+  margin: 0;
+}
 .task {
   background: url('../../assets/image/note-pin-paper3.png') no-repeat;
-  background-size: 100% 200px;
+  background-size: 100% 105%;
   font-family: 'Bad Script', cursive;
   margin: 9px 3px 1px 3px;
   text-align: center;
@@ -22,15 +29,13 @@
   /*background-size: 100% 200px;*/
 /*}*/
 
-.sectionNextPrevious img {
+.taskContent {
+  padding: 0 30px 5px 30px;
+}
+.dropdownMenu img {
   width: 30px;
   height: 30px;
 }
-
-.taskContent {
-  padding: 0 30px 0 30px;
-}
-
 h2 {
   margin: 0;
 }
@@ -39,21 +44,34 @@ p {
   margin: 5px 0 11px 0;
   padding-bottom: 3px;
 }
-
-.sectionNextPrevious {
+.sectionBottom {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  width: 100%;
+}
+.sectionNextPrevious {
   margin-right: 15px;
+  width: 42px;
+  height: 30px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .next {
-  margin-left: 2px;
+  width: 30px;
+  height: 30px;
+  flex: none;
 }
-
+.previous {
+  width: 30px;
+  height: 30px;
+  flex: none;
+}
 .sectionPriority {
   display: flex;
   justify-content: flex-start;
-  margin: -33px 0 0 20px;
+  margin-left: 25px;
   font-size: 1.3rem;
   line-height: 1.6;
   font-family: 'Neucha', cursive;
@@ -70,4 +88,83 @@ p {
 
 .executor {
   font-weight: bold;
+}
+.editTask {
+  width: 30px;
+  height: 30px;
+  background: url("../../assets/image/Files-Edit-File-icon.png") center no-repeat;
+  background-size: 30px 30px;
+  border: 0;
+  padding: 0;
+}
+
+.deleteTask {
+  width: 30px;
+  height: 30px;
+  background: url("../../assets/image/Delete-File-icon.png") center no-repeat;
+  background-size: 29px 29px;
+  border: 0;
+  padding: 0;
+}
+.button {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.dropdownMenuButton {
+  display: flex;
+  justify-content: flex-end;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  padding: 0;
+  margin: 0 auto;
+}
+.open {
+  background: url("../../assets/image/burger-icon.png") center no-repeat;
+  background-size: 30px 30px;
+}
+.close {
+  background: url("../../assets/image/close-icon.png") center no-repeat;
+  background-size: 30px 30px;
+}
+.dropdownMenu {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column wrap;
+  margin: 3px;
+  height: 135px;
+  background: #ccbd88;
+  padding: 4px 6px 4px 6px;
+  border-radius: 3px;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+input {
+  width: 70%;
+  border: 1px solid #cecece;
+  border-radius: 8px;
+  padding: 6px;
+  margin-bottom: 3px;
+}
+.taskContent button {
+  border: #000000 1px solid;
+  color: #000000;
+  background-color: transparent;
+  padding: 5px;
+  font-weight: bold;
+  transition: .5s;
+  border-radius: 0px;
+  text-align: center;
+  margin: 7px 3px 3px 3px;
+}
+.taskContent button:hover {
+  transition: .5s;
+  border-radius: 8px;
+}
+.taskContent select {
+  padding: 5px;
+  border: 1px solid #cecece;
 }
